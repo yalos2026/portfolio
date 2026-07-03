@@ -353,7 +353,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, transparent 40%, rgba(10, 20, 16, 0.95) 100%);
+            background: linear-gradient(180deg, transparent 20%, rgba(10, 20, 16, 0.95) 100%);
             pointer-events: none;
         }
 
@@ -602,13 +602,182 @@
             .portfolio-hero { padding: 130px 5% 60px; }
             .portfolio-image { height: 180px; }
         }
+
+        /* === СЕКЦИЯ ОБО МНЕ === */
+        .about-section {
+            padding: 100px 5%;
+            position: relative;
+            z-index: 10;
+            background: linear-gradient(180deg, transparent 0%, rgba(10, 20, 16, 0.4) 100%);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .about-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--gold);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .about-subtitle {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--text);
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* === СЕТКА НАВЫКОВ === */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, rgba(20, 30, 24, 0.8) 0%, rgba(10, 20, 16, 0.9) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 16px;
+            padding: 35px 30px;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.1);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .skill-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skill-card li {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.6;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            opacity: 0.9;
+        }
+
+        .skill-card li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 0.8rem;
+            top: 3px;
+        }
+
+        .skill-card li strong {
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        /* === X-FACTOR (ЧЕМ Я ОТЛИЧАЮСЬ) === */
+        .x-factor-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(10, 20, 16, 0.8) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .x-factor-card h3 {
+            font-family: var(--font-serif);
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--gold);
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .x-factor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .x-factor-item {
+            position: relative;
+            padding-left: 60px;
+        }
+
+        .x-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: rgba(212, 175, 55, 0.2);
+            line-height: 1;
+        }
+
+        .x-factor-item p {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .x-factor-item strong {
+            color: var(--gold-light);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-section { padding: 60px 4%; }
+            .skill-card { padding: 25px 20px; }
+            .x-factor-card { padding: 35px 25px; }
+            .x-factor-item { padding-left: 50px; }
+            .x-number { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
 
 <!-- Фоновое изображение -->
 <div class="nature-hero-bg">
-    <img src="images/logos.png" alt="">
+    <img src="images/logos.jpg" alt="">
 </div>
 
 <div class="magic-glow"></div>
@@ -625,7 +794,8 @@
     <a href="index.html" class="logo"><span>DARIA ROZENVASSER</span></a>
     <nav>
         <a href="index.html" data-i18n="nav_home">Главная</a>
-        <a href="portfolio.html" data-i18n="nav_portfolio">Портфолио</a>
+        <a href="#portfolio" data-i18n="nav_portfolio">Портфолио</a>
+        <a href="#aboutme" data-i18n="nav_me">Обо мне</a>
         <a href="#contacts" data-i18n="nav_contacts">Контакты</a>
         <button class="lang-switch" id="langSwitch" title="Switch language">
             <span class="lang-current">RU</span>
@@ -649,13 +819,12 @@
 </section>
 
 <!-- СЕТКА ПРОЕКТОВ -->
-<div class="portfolio-grid">
-
+<div class="portfolio-grid" id="portfolio">
     <!-- DARIA ROZENVASSER -->
     <div class="portfolio-card reveal">
         <div class="portfolio-image">
             <span class="portfolio-badge">Premium</span>
-            <img src="images/portfolio-daria.jpg" alt="DARIA ROZENVASSER" 
+            <img src="images/necklace.png" alt="DARIA ROZENVASSER" 
                  onerror="this.parentElement.style.background='linear-gradient(135deg, #2a1008 0%, #1a0805 100%)'">
         </div>
         <div class="portfolio-content">
@@ -672,7 +841,7 @@
                 <span class="portfolio-tag">PHP</span>
                 <span class="portfolio-tag">localStorage</span>
             </div>
-            <a href="https://daria-rozenvasser.com" class="portfolio-link" target="_blank" rel="noopener">
+            <a href="https://necklace.wuaze.com/" class="portfolio-link" target="_blank" rel="noopener">
                 <span data-i18n="portfolio_view">Посмотреть сайт</span>
             </a>
         </div>
@@ -682,7 +851,7 @@
     <div class="portfolio-card reveal">
         <div class="portfolio-image">
             <span class="portfolio-badge">B2B</span>
-            <img src="images/portfolio-yalos.jpg" alt="YALOS INDICATOR"
+            <img src="images/yalos.png" alt="YALOS INDICATOR"
                  onerror="this.parentElement.style.background='linear-gradient(135deg, #1a2820 0%, #0a1410 100%)'">
         </div>
         <div class="portfolio-content">
@@ -708,7 +877,7 @@
     <div class="portfolio-card reveal">
         <div class="portfolio-image">
             <span class="portfolio-badge">Startup</span>
-            <img src="images/portfolio-stream.jpg" alt="YALOS STREAM"
+            <img src="images/stream.png" alt="YALOS STREAM"
                  onerror="this.parentElement.style.background='linear-gradient(135deg, #0a1f3d 0%, #050f1f 100%)'">
         </div>
         <div class="portfolio-content">
@@ -734,7 +903,7 @@
     <div class="portfolio-card reveal">
         <div class="portfolio-image">
             <span class="portfolio-badge">Cinema</span>
-            <img src="images/portfolio-gp.jpg" alt="GP FILM"
+            <img src="images/film.png" alt="GP FILM"
                  onerror="this.parentElement.style.background='linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)'">
         </div>
         <div class="portfolio-content">
@@ -758,18 +927,90 @@
 
 </div>
 
+<!-- СЕКЦИЯ: ОБО МНЕ И НАВЫКИ -->
+<section class="about-section reveal" id="aboutme">
+    <div class="about-container">
+        
+        <div class="about-header">
+            <div class="portfolio-label" data-i18n="about_label">Обо мне</div>
+            <h2 class="about-title" data-i18n="about_title">Архитектор цифровых миров</h2>
+            <p class="about-subtitle" data-i18n="about_subtitle">
+                Я не просто пишу код. Я объединяю инженерную точность, творческое видение и бизнес-стратегию, чтобы создавать продукты, которые работают и приносят результат.
+            </p>
+        </div>
+
+        <div class="skills-grid">
+            
+            <!-- Блок 1: Разработка и Серверы -->
+            <div class="skill-card">
+                <div class="skill-icon">⚙️</div>
+                <h3 data-i18n="skill_dev_title">Full-Stack & DevOps</h3>
+                <ul>
+                    <li data-i18n="skill_dev_1"><strong>Backend:</strong> PHP, Python, MySQL, построение баз данных, deploy.</li>
+                    <li data-i18n="skill_dev_2"><strong>Frontend:</strong> HTML5, CSS3 (сложные анимации), JavaScript (ES6+, Canvas API, DOM).</li>
+                    <li data-i18n="skill_dev_3"><strong>Серверы:</strong> Работа с Linux, настройка Nginx, работа с хостингами и доменами, сертификат администратора Mikrotik 2026 года.</li>
+                </ul>
+            </div>
+
+            <!-- Блок 2: AI и Генерация -->
+            <div class="skill-card">
+                <div class="skill-icon">🤖</div>
+                <h3 data-i18n="skill_ai_title">Generative AI & Нейросети</h3>
+                <ul>
+                    <li data-i18n="skill_ai_1"><strong>Визуал:</strong> Генерация уникальных изображений (Gemini, ChatGPT), улучшение качества существующих документов и фото, разработка логотипа.</li>
+                    <li data-i18n="skill_ai_2"><strong>Видео:</strong> Создание и монтаж видео с помощью AI-инструментов (Google AI Studio).</li>
+                    <li data-i18n="skill_ai_3"><strong>Контент:</strong> Автоматизация создания презентаций, текстов и сценариев через LLM, встроенный перевод сайтов на любой язык.</li>
+                </ul>
+            </div>
+
+            <!-- Блок 3: Дизайн и UX -->
+            <div class="skill-card">
+                <div class="skill-icon">🎨</div>
+                <h3 data-i18n="skill_ux_title">UX/UI & Интерактив</h3>
+                <ul>
+                    <li data-i18n="skill_ux_1">Проектирование атмосферных интерфейсов и пользовательских сценариев.</li>
+                    <li data-i18n="skill_ux_2">Разработка кастомных анимаций, микро-взаимодействий и геймификации, опыт создания мобильных приложений (Flutter).</li>
+                    <li data-i18n="skill_ux_3">Адаптивный дизайн (Mobile First) и оптимизация производительности.</li>
+                    <li data-i18n="skill_ux_4">Создание уникальных визуальных стилей с нуля.</li>
+                </ul>
+            </div>
+          
+        </div>
+
+        <!-- Блок: Чем я отличаюсь -->
+        <div class="x-factor-card">
+            <h3 data-i18n="xfactor_title">✨ Почему я, а не типичный фрилансер?</h3>
+            <div class="x-factor-grid">
+                <div class="x-factor-item">
+                    <span class="x-number">01</span>
+                    <p data-i18n="xfactor_1"><strong>Я понимаю бизнес.</strong> Благодаря опыту в управлении, я знаю, как сайт влияет на продажи. Я не спрашиваю «какой цвет кнопки?», я спрашиваю «какую задачу мы решаем?».</p>
+                </div>
+                <div class="x-factor-item">
+                    <span class="x-number">02</span>
+                    <p data-i18n="xfactor_2"><strong>Я закрываю весь цикл.</strong> Мне не нужно нанимать дизайнера, верстальщика, бэкендера и копирайтера. Я могу настроить сервер, написать код, сгенерировать контент через AI и запустить проект.</p>
+                </div>
+                <div class="x-factor-item">
+                    <span class="x-number">03</span>
+                    <p data-i18n="xfactor_3"><strong>Я создаю миры, а не шаблоны.</strong> Я не использую готовые конструкторы. Каждый мой проект — это кастомная инженерная и творческая работа с уникальной атмосферой.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 <!-- CTA -->
 <section class="portfolio-cta reveal">
     <div class="portfolio-cta-card">
         <h3 data-i18n="portfolio_cta_title">Есть идея для проекта?</h3>
         <p data-i18n="portfolio_cta_text">
-            Я создаю не просто сайты — цифровые миры, которые запоминаются. 
+            Я создаю сайты без шаблонов. Но со знаниями и умениями лучших нейросетей. 
             Давайте обсудим ваш проект.
         </p>
-        <a href="#contacts" class="portfolio-cta-btn">
-            <span data-i18n="portfolio_cta_btn">Связаться со мной</span>
-            <span>→</span>
-        </a>
+        <a href="#" class="portfolio-cta-btn" id="contactBtn">
+    <span data-i18n="portfolio_cta_btn">Связаться со мной</span>
+    <span>→</span>
+</a>
     </div>
 </section>
 
@@ -786,40 +1027,116 @@ const translations = {
         nav_home: "Главная",
         nav_portfolio: "Портфолио",
         nav_contacts: "Контакты",
+		nav_me: "Обо мне",
+
+        
         portfolio_label: "Мои работы",
         portfolio_title: "Цифровые миры",
         portfolio_subtitle: "Создаю уникальные цифровые пространства для разных индустрий — от ювелирных брендов до промышленных технологий и киноиндустрии",
+        
         portfolio_cat_jewelry: "Ювелирный бренд",
         portfolio_cat_industry: "Промышленные технологии",
         portfolio_cat_startup: "Инновационный стартап",
         portfolio_cat_cinema: "Киноиндустрия",
+        
         portfolio_daria_desc: "Сайт авторских украшений с атмосферой зачарованного леса и четырёх стихий. Интерактивная игра, кастомные Canvas-анимации, корзина-«шкатулка сокровищ».",
         portfolio_yalos_desc: "Корпоративный сайт инновационной компании. Термоиндикаторы, жидкокристаллические термометры, промышленная безопасность и дистрибуция.",
         portfolio_stream_desc: "Презентационный лендинг для революционной звуковой VR-технологии. «Близкие звуки» в кинотеатрах через акустику в креслах.",
         portfolio_gp_desc: "Сайт кинокомпании с 1999 года. Производство фильмов и сериалов, дистрибуция, призы Каннского фестиваля. Проекты «Фурцева», «Затмение».",
+        
         portfolio_view: "Посмотреть сайт",
+        
+        // === ОБО МНЕ ===
+        about_label: "Обо мне",
+        about_title: "Архитектор цифровых миров",
+        about_subtitle: "Я не просто пишу код. Я объединяю инженерную точность, творческое видение и бизнес-стратегию, чтобы создавать продукты, которые работают и приносят результат.",
+        
+        // Навыки - Разработка
+        skill_dev_title: "Full-Stack & DevOps",
+        skill_dev_1: "<strong>Backend:</strong> PHP, Python, MySQL, построение баз данных, deploy.",
+        skill_dev_2: "<strong>Frontend:</strong> HTML5, CSS3 (сложные анимации), JavaScript (ES6+, Canvas API, DOM).",
+        skill_dev_3: "<strong>Серверы:</strong> Работа с Linux, настройка Nginx, работа с хостингами и доменами, сертификат администратора Mikrotik 2026 года.",
+        
+        // Навыки - AI
+        skill_ai_title: "Generative AI & Нейросети",
+        skill_ai_1: "<strong>Визуал:</strong> Генерация уникальных изображений (Gemini, ChatGPT), улучшение качества существующих документов и фото, разработка логотипа.",
+        skill_ai_2: "<strong>Видео:</strong> Создание и монтаж видео с помощью AI-инструментов (Google AI Studio).",
+        skill_ai_3: "<strong>Контент:</strong> Автоматизация создания презентаций, текстов и сценариев через LLM, встроенный перевод сайтов на любой язык.",
+        
+        // Навыки - UX
+        skill_ux_title: "UX/UI & Интерактив",
+        skill_ux_1: "Проектирование атмосферных интерфейсов и пользовательских сценариев.",
+        skill_ux_2: "Разработка кастомных анимаций, микро-взаимодействий и геймификации, опыт создания мобильных приложений (Flutter).",
+        skill_ux_3: "Адаптивный дизайн (Mobile First) и оптимизация производительности.",
+        skill_ux_4: "Создание уникальных визуальных стилей с нуля.",
+        
+        // X-Factor
+        xfactor_title: "✨ Почему я, а не типичный фрилансер?",
+        xfactor_1: "<strong>Я понимаю бизнес.</strong> Благодаря опыту в управлении, я знаю, как сайт влияет на продажи. Я не спрашиваю «какой цвет кнопки?», я спрашиваю «какую задачу мы решаем?».",
+        xfactor_2: "<strong>Я закрываю весь цикл.</strong> Мне не нужно нанимать дизайнера, верстальщика, бэкендера и копирайтера. Я могу настроить сервер, написать код, сгенерировать контент через AI и запустить проект.",
+        xfactor_3: "<strong>Я создаю миры, а не шаблоны.</strong> Я не использую готовые конструкторы. Каждый мой проект — это кастомная инженерная и творческая работа с уникальной атмосферой.",
+        
+        // CTA
         portfolio_cta_title: "Есть идея для проекта?",
-        portfolio_cta_text: "Я создаю не просто сайты — цифровые миры, которые запоминаются. Давайте обсудим ваш проект.",
+        portfolio_cta_text: "Я создаю сайты без шаблонов. Но со знаниями и умениями лучших нейросетей. Давайте обсудим ваш проект.",
         portfolio_cta_btn: "Связаться со мной"
     },
     en: {
         nav_home: "Home",
         nav_portfolio: "Portfolio",
         nav_contacts: "Contacts",
+		nav_me: "About me",
+
+        
         portfolio_label: "My works",
         portfolio_title: "Digital Worlds",
         portfolio_subtitle: "I create unique digital spaces for different industries — from jewelry brands to industrial technologies and cinema",
+        
         portfolio_cat_jewelry: "Jewelry Brand",
         portfolio_cat_industry: "Industrial Technologies",
         portfolio_cat_startup: "Innovative Startup",
         portfolio_cat_cinema: "Cinema Industry",
+        
         portfolio_daria_desc: "Website for handmade jewelry with the atmosphere of an enchanted forest and four elements. Interactive game, custom Canvas animations, treasure chest cart.",
         portfolio_yalos_desc: "Corporate website of an innovative company. Thermal indicators, liquid crystal thermometers, industrial safety and distribution.",
         portfolio_stream_desc: "Presentation landing page for revolutionary sound VR technology. 'Close sounds' in cinemas through acoustics in seats.",
         portfolio_gp_desc: "Website of a film company since 1999. Production of films and series, distribution, Cannes Film Festival awards. Projects 'Furtseva', 'Eclipse'.",
+        
         portfolio_view: "View website",
+        
+        // === ABOUT ME ===
+        about_label: "About me",
+        about_title: "Digital Worlds Architect",
+        about_subtitle: "I don't just write code. I combine engineering precision, creative vision, and business strategy to create products that work and deliver results.",
+        
+        // Skills - Development
+        skill_dev_title: "Full-Stack & DevOps",
+        skill_dev_1: "<strong>Backend:</strong> PHP, Python, MySQL, database design, deployment.",
+        skill_dev_2: "<strong>Frontend:</strong> HTML5, CSS3 (complex animations), JavaScript (ES6+, Canvas API, DOM).",
+        skill_dev_3: "<strong>Servers:</strong> Linux administration, Nginx setup, hosting and domains management, Mikrotik administrator certificate 2026.",
+        
+        // Skills - AI
+        skill_ai_title: "Generative AI & Neural Networks",
+        skill_ai_1: "<strong>Visual:</strong> Generating unique images (Gemini, ChatGPT), enhancing existing documents and photos, logo design.",
+        skill_ai_2: "<strong>Video:</strong> Creating and editing videos using AI tools (Google AI Studio).",
+        skill_ai_3: "<strong>Content:</strong> Automating presentations, texts, and scripts via LLM, built-in website translation to any language.",
+        
+        // Skills - UX
+        skill_ux_title: "UX/UI & Interactivity",
+        skill_ux_1: "Designing atmospheric interfaces and user scenarios.",
+        skill_ux_2: "Developing custom animations, micro-interactions, and gamification; experience in mobile app development (Flutter).",
+        skill_ux_3: "Responsive design (Mobile First) and performance optimization.",
+        skill_ux_4: "Creating unique visual styles from scratch.",
+        
+        // X-Factor
+        xfactor_title: "✨ Why me, not a typical freelancer?",
+        xfactor_1: "<strong>I understand business.</strong> Thanks to my management experience, I know how a website affects sales. I don't ask 'what button color?', I ask 'what problem are we solving?'.",
+        xfactor_2: "<strong>I cover the full cycle.</strong> I don't need to hire a designer, developer, backend engineer, and copywriter. I can set up the server, write the code, generate content via AI, and launch the project.",
+        xfactor_3: "<strong>I create worlds, not templates.</strong> I don't use ready-made builders. Every project of mine is a custom engineering and creative work with a unique atmosphere.",
+        
+        // CTA
         portfolio_cta_title: "Have an idea for a project?",
-        portfolio_cta_text: "I create not just websites — digital worlds that are remembered. Let's discuss your project.",
+        portfolio_cta_text: "I create websites without templates. But with the knowledge and skills of the best neural networks. Let's discuss your project.",
         portfolio_cta_btn: "Contact me"
     }
 };
@@ -934,6 +1251,19 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 revealElements.forEach(el => revealObserver.observe(el));
+// === СКРЫТАЯ ПОЧТА ===
+const contactBtn = document.getElementById('contactBtn');
+if (contactBtn) {
+    contactBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const user = 'nonkonformistsp';
+        const domain = 'gmail';
+        const tld = 'com';
+        const email = user + '@' + domain + '.' + tld;
+        const subject = encodeURIComponent('Запрос на проект');
+        window.location.href = `mailto:${email}?subject=${subject}`;
+    });
+}
 </script>
 
 </body>
